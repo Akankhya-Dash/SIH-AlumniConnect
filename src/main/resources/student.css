@@ -1,0 +1,288 @@
+/* student.css - dark/grey + yellow theme with lighter orange shadows */
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #1c1c1c; /* dark background */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header */
+header {
+  background: #2a2a2a; /* card/grey background */
+  color: #FFA726;      /* yellow text */
+  text-align: center;
+  padding: 18px 16px;
+  box-shadow: 0 4px 6px rgba(255,152,0,0.2); /* lighter orange shadow */
+}
+header h1 { margin: 0; font-size: 1.8rem; color: #FFA726; }
+header p { margin: 6px 0 0 0; opacity: 0.95; font-size: 0.95rem; color: #FFA726; }
+
+/* Main container */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto;
+  padding: 0 16px;
+  flex: 1;
+}
+
+/* Generic card */
+.card {
+  background: #2a2a2a; /* card grey */
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(255,152,0,0.2); /* lighter orange shadow */
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(255,152,0,0.2); }
+
+/* BUTTON */
+.btn {
+  display:inline-block;
+  padding: 10px 16px;
+  background: #FFA726; /* yellow */
+  color:#1c1c1c;       /* dark text */
+  border-radius:8px;
+  border:0;
+  text-decoration:none;
+  cursor:pointer;
+  font-weight:500;
+}
+.btn:hover { background: #FFB74D; } /* lighter yellow hover */
+
+/* ===== Student Dashboard Layout ===== */
+.dashboard-layout {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Profile card - left */
+.profile-card {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.profile-card h2 { margin:0 0 4px 0; color:#FFA726; font-size:1.35rem; }
+.profile-card p { margin:4px 0; color:#bbb; line-height:1.4; }
+.profile-meta { display:flex; gap:12px; margin-top:8px; font-size:0.95rem; color:#bbb; }
+
+/* Actions (right) */
+.actions {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.action-card {
+  text-align: left;
+}
+.action-card h3 { margin: 0 0 8px 0; color:#FFA726; font-size:1.15rem; }
+.action-card p { margin: 0 0 12px 0; color:#bbb; }
+.action-card .btn { display:block; width: fit-content; }
+
+/* ===== Connect Page: search form & results ===== */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.search-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  font-size: 1rem;
+  background: #1c1c1c;
+  color: #fff;
+}
+.search-form button {
+  width: 160px;
+  align-self: center;
+  margin-top: 4px;
+  background: #FFA726;
+  color: #1c1c1c;
+}
+.search-form button:hover { background: #FFB74D; }
+
+/* Results grid */
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+/* Alumni card inside results */
+.alumni-card {
+  padding: 14px;
+}
+.alumni-card h3 { margin:0 0 6px 0; color:#FFA726; font-size:1.05rem; }
+.alumni-card p { margin:4px 0; color:#bbb; font-size:0.95rem; }
+.connect-btn {
+  margin-top:8px;
+  padding:8px 12px;
+  border-radius:8px;
+  border:0;
+  background:#FFA726;
+  color:#1c1c1c;
+  cursor:pointer;
+}
+.connect-btn:hover { background:#FFB74D; }
+
+/* ===== Mentorship form ===== */
+.mentorship-form {
+  max-width: 700px;
+  margin: 0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* ===== Events grid ===== */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Small utilities */
+.sr-only { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+
+/* Footer */
+footer {
+  text-align:center;
+  padding:18px 10px;
+  background: #2a2a2a; /* grey */
+  color:#FFA726;        /* yellow */
+  margin-top:20px;
+  box-shadow: 0 -2px 6px rgba(255,152,0,0.2); /* lighter orange shadow */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .dashboard-layout { flex-direction: column; }
+  .profile-card { width: 100%; flex: none; }
+  .actions { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  header h1 { font-size: 1.4rem; }
+  .card { padding: 16px; border-radius: 12px; }
+  .search-form button { width: 100%; }
+}
+
+/* ==== Dashboard equal height patch ==== */
+.actions {
+  align-items: stretch;
+}
+.action-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 170px;
+  gap: 12px;
+}
+.action-card .btn { align-self: flex-start; margin-top: 8px; }
+.dashboard-layout { display:flex !important; gap:22px !important; align-items: stretch !important; }
+.dashboard-layout .actions {
+  display:grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr)) !important;
+  gap:18px !important;
+  grid-auto-rows:1fr !important;
+  align-items: stretch !important;
+  align-content: start !important;
+}
+.dashboard-layout .actions > .card,
+.dashboard-layout .actions > .action-card,
+.dashboard-layout .actions > div.action-card {
+  display:flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height:100% !important;
+  gap:10px !important;
+  padding:20px !important;
+  box-sizing:border-box !important;
+}
+.dashboard-layout .actions > .card .btn,
+.dashboard-layout .actions > .action-card .btn,
+.dashboard-layout .actions > div.action-card .btn {
+  margin-top:auto !important;
+  align-self:flex-start !important;
+}
+.dashboard-layout .actions > .card[style],
+.dashboard-layout .actions > .action-card[style] { min-height:0 !important; }
+.view-profile-card {
+  width:100%;
+  max-width:600px;
+  margin:0 auto 20px auto;
+}
+.dashboard-row {
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.dashboard-row .card {
+  flex:1 1 200px;
+  max-width:300px;
+}
+
+.view-profile-card h3 {
+    color: #FFA726; /* yellow */
+}
+/* Ensure equal height cards */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 15px;
+  background-color: #2a2a2a;           /* dark card background */
+  color: #fff;                          /* white text */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(255,152,0,0.2); /* light orange shadow */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(255,152,0,0.3);
+}
+
+/* Button style */
+.join-btn {
+  display: inline-block;
+  background-color: #FFA726;           /* orange button */
+  color: #1c1c1c;                      /* dark text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  margin-top: auto; /* Pushes button to bottom */
+}
+
+.join-btn:hover {
+  background-color: rgba(255,152,0,0.6);  /* lighter orange hover */
+  transform: translateY(-2px);
+}

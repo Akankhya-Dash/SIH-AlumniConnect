@@ -1,0 +1,216 @@
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: #2a2a2a; /* same as card */
+  color: #FFA726;      /* font color */
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(255,152,0,0.2);
+}
+
+header h1, header p {
+  color: #FFA726; /* ensure all header text is correct */
+  margin: 0;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+header p {
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+/* Container */
+.container {
+  flex: 1;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+.card, .form-card {
+  background-color: #2a2a2a;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(255,152,0,0.2);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(255,152,0,0.2);
+}
+
+/* Headings inside cards */
+.card h2, .card h3, .form-card h2 {
+  color: #FFA726; /* headings */
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.card p {
+  margin: 6px 0;
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
+/* Grid Fix for Jobs + Requests */
+.jobs-grid, .requests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, #FFA726, #FFA726);
+  color: #1c1c1c;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #FFB74D, #FFA726);
+}
+
+/* Accept / Decline buttons */
+.btn-accept {
+  background: #2ecc71;
+  margin-right: 8px;
+}
+
+.btn-accept:hover {
+  background: #27ae60;
+}
+
+.btn-decline {
+  background: #e74c3c;
+}
+
+.btn-decline:hover {
+  background: #c0392b;
+}
+
+/* Inputs & Forms */
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #FFA726;
+  box-shadow: 0 0 5px rgba(255,152,0,0.2);
+}
+
+/* Toggle Button */
+.toggle-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.toggle-btn.yes {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.toggle-btn.no {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #2a2a2a; /* same as card */
+  color: #FFA726;      /* font */
+  margin-top: 30px;
+  box-shadow: 0 -4px 6px rgba(255,152,0,0.2);
+}
+
+/* Alumni Dashboard Cards */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.view-profile-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.dashboard-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.dashboard-row .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 260px;
+  min-height: 180px;
+  flex: 1;
+}
+
+.dashboard-row .card .btn,
+.dashboard-row .card .toggle-btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .dashboard-row .card {
+    min-width: 45%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-row .card {
+    min-width: 100%;
+  }
+}
